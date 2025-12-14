@@ -1,3 +1,7 @@
+import matplotlib
+
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -55,7 +59,7 @@ def plot_training_history(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_multiple_experiments(
@@ -102,7 +106,7 @@ def plot_multiple_experiments(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_overfitting_analysis(
@@ -156,7 +160,7 @@ def plot_overfitting_analysis(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_comparison_bar(
@@ -210,7 +214,7 @@ def plot_comparison_bar(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_parameter_vs_accuracy(
@@ -254,7 +258,7 @@ def plot_parameter_vs_accuracy(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_heatmap(
@@ -300,7 +304,7 @@ def plot_heatmap(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_training_time_comparison(
@@ -354,7 +358,7 @@ def plot_training_time_comparison(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 def plot_weight_distribution(
@@ -408,7 +412,7 @@ def plot_weight_distribution(
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Plot saved to {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 if __name__ == "__main__":
@@ -425,9 +429,11 @@ if __name__ == "__main__":
     }
 
     # Тест графика истории обучения
-    plot_training_history(test_history, title="Test Training History")
+    plot_training_history(test_history, title="Test Training History",
+                          save_path="test_history.png")
 
     # Тест анализа переобучения
-    plot_overfitting_analysis(test_history, title="Test Overfitting Analysis")
+    plot_overfitting_analysis(test_history, title="Test Overfitting Analysis",
+                              save_path="test_overfitting.png")
 
-    print("Visualization tests completed!")
+    print("Visualization tests completed! Check test_history.png and test_overfitting.png")
