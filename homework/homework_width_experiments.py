@@ -426,12 +426,12 @@ def experiment_cifar10_width():
 
         def model_fn():
             model = create_fc_model(
-                input_size=3072,  # 32x32x3 для CIFAR-10
+                input_size=3072,
                 num_classes=10,
                 hidden_sizes=config['hidden_sizes'],
-                use_dropout=True,  # Dropout для более сложного датасета
+                use_dropout=True,
                 dropout_rate=0.3,
-                use_batch_norm=True,  # BatchNorm помогает на CIFAR
+                use_batch_norm=True,
                 activation='relu'
             )
             return nn.Sequential(nn.Flatten(), model)
