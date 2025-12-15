@@ -414,26 +414,3 @@ def plot_weight_distribution(
 
     plt.close()
 
-
-if __name__ == "__main__":
-    # Тестирование функций визуализации
-    print("Testing visualization_utils.py")
-
-    # Создание тестовых данных
-    test_history = {
-        'train_loss': [2.3, 1.5, 1.0, 0.7, 0.5],
-        'test_loss': [2.2, 1.6, 1.2, 0.9, 0.8],
-        'train_acc': [20, 50, 70, 85, 92],
-        'test_acc': [18, 48, 68, 82, 88],
-        'epoch_times': [10.5, 10.2, 10.3, 10.1, 10.4]
-    }
-
-    # Тест графика истории обучения
-    plot_training_history(test_history, title="Test Training History",
-                          save_path="test_history.png")
-
-    # Тест анализа переобучения
-    plot_overfitting_analysis(test_history, title="Test Overfitting Analysis",
-                              save_path="test_overfitting.png")
-
-    print("Visualization tests completed! Check test_history.png and test_overfitting.png")

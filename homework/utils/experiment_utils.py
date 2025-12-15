@@ -321,41 +321,4 @@ def load_results(filepath: str) -> Dict:
         return json.load(f)
 
 
-if __name__ == "__main__":
-    # Тестирование функций
-    logger.info("Testing experiment_utils.py")
 
-    # Создание фиктивных данных для теста
-    X_train = torch.randn(100, 784)
-    y_train = torch.randint(0, 10, (100,))
-    X_test = torch.randn(20, 784)
-    y_test = torch.randint(0, 10, (20,))
-
-    train_dataset = TensorDataset(X_train, y_train)
-    test_dataset = TensorDataset(X_test, y_test)
-
-    train_loader = DataLoader(train_dataset, batch_size=10, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=10)
-
-
-    # Тестовая модель
-    def create_test_model():
-        return nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(784, 128),
-            nn.ReLU(),
-            nn.Linear(128, 10)
-        )
-
-
-    # Запуск эксперимента
-    results = run_experiment(
-        model_fn=create_test_model,
-        train_loader=train_loader,
-        test_loader=test_loader,
-        experiment_name="Test Experiment",
-        epochs=3,
-        learning_rate=0.001
-    )
-
-    logger.info("Test completed successfully!")
