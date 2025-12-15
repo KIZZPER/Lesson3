@@ -562,16 +562,5 @@ def main():
     print(f"  Test Accuracy: {best_combined['final_test_acc']:.2f}%")
     print(f"  Parameters: {best_combined['num_parameters']:,}")
 
-    # Рекомендации
-    print("\n" + "=" * 80)
-    print("RECOMMENDATIONS")
-    print("=" * 80)
-    print("1. BatchNorm provides excellent regularization with minimal overhead")
-    print("2. Dropout (0.3) combined with BatchNorm gives best results")
-    print("3. L2 regularization (weight decay) is effective but less powerful than Dropout+BN")
-    print("4. Heavy regularization (Dropout 0.5+) may hurt performance")
-    print("5. For stable training, BatchNorm is highly recommended")
-
-
 if __name__ == "__main__":
     main()
